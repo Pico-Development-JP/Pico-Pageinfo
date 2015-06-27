@@ -11,16 +11,6 @@ class PageInfo{
 
   // copied from pico source, $headers as array gives ability to add additional metadata, e.g. header image
   private function read_file_meta($file_url, $content) {
-    $headers = array('attachurl' => 'URL');
-
-    foreach ($headers as $field => $regex) {
-      if (preg_match('/^[ \t\/*#@]*' . preg_quote($regex, '/') . ':(.*)$/mi', $content, $match) && $match[1]){
-        $headers[ $field ] = trim(preg_replace("/\s*(?:\*\/|\?>).*/", '', $match[1]));
-      } else {
-        $headers[ $field ] = '';
-      }
-    }
-
     $headers['p_path'] = $file_url;
     $p = explode("/", $file_url);
     array_shift($p); // 一つ目の要素は必ずコンテンツフォルダのため
