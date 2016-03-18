@@ -10,14 +10,6 @@
 class PageInfo extends AbstractPicoPlugin {
 
   protected $enabled = false;
- 
-  private $content_dir;
-  
-  public function onConfigLoaded(array &$config)
-  {
-    $this->base_url = $config['base_url'];
-    $this->content_dir = $config["content_dir"];
-  }
 
   public function onSinglePageLoaded(array &$pageData)
   {
